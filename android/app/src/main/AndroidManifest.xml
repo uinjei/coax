@@ -9,7 +9,6 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="coax"
         android:icon="@mipmap/ic_launcher">
-        <uses-permission android:name="android.permission.INTERNET"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -45,4 +44,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

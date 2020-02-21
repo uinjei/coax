@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coax/components/video.dart';
+import 'dart:developer' as developer;
 
 class InstructionPage extends StatefulWidget {
   InstructionPage({Key key}) : super(key: key);
@@ -17,9 +18,21 @@ class _InstructionPageState extends State<InstructionPage> {
 
     final InstructionPageArgs args = ModalRoute.of(context).settings.arguments;
 
-    return CustomVideoPlayer(args: args);
+    return CustomVideoPlayer(args: args, toggleIcon: _toggleIcon);
   }
-
+  
+  void _toggleIcon(_controller) {
+    setState(() {
+      developer.log('_controllerness: '+ _controller.value.isPlaying.toString());
+      // If the video is playing, pause it.
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        // If the video is paused, play it.
+        _controller.play();
+      }
+    });
+  }
 }
 
 class InstructionPageArgs {
